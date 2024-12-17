@@ -6316,6 +6316,10 @@ blockquote {
 }
 
 @media screen and (max-width: 479px) {
+  img{
+    max-width: 75%;
+    margin-top: -10px;
+  }
   .section-padding {
     padding-top: 3rem;
     padding-bottom: 3rem;
