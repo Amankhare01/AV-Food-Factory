@@ -2219,9 +2219,10 @@
                   <div class="contact-wrapper">
                     <div class="contact-form w-form">
                       <form
-                        name="email-form"
-                        data-name="Email Form"
-                        method="get"
+                      action="https://script.google.com/macros/s/AKfycbwnCKTSb-1MWrP8CJ97UYjdlvD-ki2POOP3auilkRyNM-IfrelzccuYZlzqAZcTD55l/exec"
+                      name="email-form"
+                      data-name="email Form"
+                      method="POST"
                         id="email-form"
                         class="form"
                         data-wf-page-id="6627c69383d3009e5f8fdf3e"
@@ -2274,54 +2275,26 @@
                                 placeholder="Enter your name"
                                 type="text"
                                 id="name"
-                                required=""
+                                required
                               />
                             </div>
                           </div>
                           <div class="form-wrapper">
-                            <label for="name" class="text-base regular"
-                              >Email</label
-                            >
+                            <label for="name-2" class="text-base regular">Email</label>
                             <div class="input-wrapper">
-                              <input
-                                class="input-field w-input"
-                                maxlength="256"
-                                name="Email"
-                                data-name="Email"
-                                placeholder="What&#x27;s your email"
-                                type="email"
-                                id="email"
-                                required=""
-                              />
+                              <input class="input-field gray w-input" maxlength="256" name="email" data-name="Email 2"
+                                placeholder="What&#x27;s your email" type="email" id="email" required />
                               <div class="form-icon w-embed">
-                                <svg
-                                  width="100%"
-                                  height="100%"
-                                  viewBox="0 0 25 24"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <mask
-                                    id="mask0_341_12918"
-                                    style="mask-type: alpha;"
-                                    maskUnits="userSpaceOnUse"
-                                    x="0"
-                                    y="0"
-                                    width="25"
-                                    height="24"
-                                  >
-                                    <rect
-                                      x="0.15625"
-                                      width="24"
-                                      height="24"
-                                      fill="#D9D9D9"
-                                    />
+                                <svg width="100%" height="100%" viewBox="0 0 25 24" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <mask id="mask0_341_12918" style="mask-type: alpha;" maskUnits="userSpaceOnUse" x="0" y="0"
+                                    width="25" height="24">
+                                    <rect x="0.15625" width="24" height="24" fill="#D9D9D9" />
                                   </mask>
                                   <g mask="url(#mask0_341_12918)">
                                     <path
                                       d="M4.15625 20C3.60625 20 3.13542 19.8042 2.74375 19.4125C2.35208 19.0208 2.15625 18.55 2.15625 18V6C2.15625 5.45 2.35208 4.97917 2.74375 4.5875C3.13542 4.19583 3.60625 4 4.15625 4H20.1562C20.7063 4 21.1771 4.19583 21.5688 4.5875C21.9604 4.97917 22.1562 5.45 22.1562 6V18C22.1562 18.55 21.9604 19.0208 21.5688 19.4125C21.1771 19.8042 20.7063 20 20.1562 20H4.15625ZM12.1562 13L4.15625 8V18H20.1562V8L12.1562 13ZM12.1562 11L20.1562 6H4.15625L12.1562 11ZM4.15625 8V6V18V8Z"
-                                      fill="currentcolor"
-                                    />
+                                      fill="currentcolor" />
                                   </g>
                                 </svg>
                               </div>
@@ -2342,7 +2315,7 @@
                                 placeholder="03/05/2023"
                                 type="text"
                                 id="date"
-                                required=""
+                                required
                               />
                               <div class="form-icon w-embed">
                                 <svg
@@ -2377,7 +2350,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="form-wrapper">
+                          <!-- <div class="form-wrapper">
                             <label for="email" class="text-base regular"
                               >Menu</label
                             >
@@ -2414,7 +2387,7 @@
                                 </svg>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                         <div class="form-wrapper">
                           <label for="area" class="text-base regular"
@@ -2425,7 +2398,7 @@
                             maxlength="5000"
                             data-name="Message"
                             placeholder="What&#x27;s your event about?"
-                            required=""
+                            required
                             class="input-field area w-input"
                           ></textarea>
                         </div>
@@ -2520,6 +2493,18 @@
                 </center>
                 <div class="divider"></div>
               </section>
+              <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwnCKTSb-1MWrP8CJ97UYjdlvD-ki2POOP3auilkRyNM-IfrelzccuYZlzqAZcTD55l/exec'
+          const form = document.forms['email-form']
+          
+          form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert("Thank you! your form is submitted successfully." ))
+          .then(() => { window.location.reload(); })
+          .catch(error => console.error('Error!', error.message))
+          })
+            </script>
                 <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=65fc6a7af6c9fe14e8eefe0b"
       type="text/javascript"
