@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avfoodfactory.com/sitemap.xml
+
+Allow: /index
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /gallery
+Allow: /menus
