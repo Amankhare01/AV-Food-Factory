@@ -9,6 +9,7 @@
   <meta content="Contact" property="twitter:title" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link
   href="/assets/images/favicon-32x32.png"
   rel="shortcut icon"
@@ -240,8 +241,9 @@
                     maxlength="5000" data-name="Message" placeholder="What&#x27;s your event about?" required
                     class="input-field area gray w-input"></textarea>
                 </div>
-                <input type="submit" data-wait="Sending proposal..." class="button primary w-button"
-                  value="Submit proposal" />
+                <div class="g-recaptcha" data-sitekey="6Ld3_OcqAAAAANnK_W2MjXNj5fV86WUpk53QS7bu"></div>
+                <input type="submit" data-wait="Sending proposal..." id="submit-button" class="button primary w-button"
+                  value="Submit proposal" disabled />
               </form>
               <div class="success-message w-form-done">
                 <div class="text-base success">
@@ -535,6 +537,23 @@
         type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
       <script src="/assets/js/app.js" type="text/javascript"></script>
+      <script>
+        setInterval(() => {
+            if (grecaptcha.getResponse().length > 0) {
+                console.log("CAPTCHA verified, enabling submit button.");
+                document.getElementById("submit-button").disabled = false;
+            } else {
+                console.log("CAPTCHA not verified, keeping submit button disabled.");
+                document.getElementById("submit-button").disabled = true;
+            }
+        }, 1000);
+      </script>
+      <script>
+        function enableSubmit() {
+            let submitButton = document.getElementById("submit-button");
+            submitButton.disabled = false; // Enable button
+        }
+      </script>
 </body>
 
 </html>
